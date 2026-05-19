@@ -160,7 +160,7 @@ No. Your LangChain ChatModel object behaves identically — same `.invoke()`, sa
 
 ### Q: What happens if Tessera's proxy is down?
 
-Your application gets HTTP errors instead of LLM responses. To passthrough on error, configure your LangChain `max_retries` to fall back to a non-Tessera client (we'll document this pattern explicitly in a future release). Tessera also runs cross-provider failover at the proxy layer — if OpenAI is degraded, traffic auto-routes to Anthropic with quality preservation.
+Your application gets HTTP errors instead of LLM responses. To passthrough on error, configure your LangChain `max_retries` to fall back to a non-Tessera client (we'll document this pattern explicitly in a future release). On the proxy side, a per-provider circuit breaker tracks rolling 5xx rates and skips degraded providers in auto-route decisions — cross-provider failover (re-routing to a different provider entirely when an upstream is down) is on the roadmap, not shipped yet.
 
 ### Q: What happens to my OpenAI / Anthropic rate limits?
 
