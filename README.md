@@ -119,7 +119,7 @@ Same mechanic stack as the main [`tessera-sdk`](https://github.com/tessera-llm/t
 | **Context prune** <sub>(m7)</sub> | Conservative trim on long conversations (system + last 8 turns; TF-IDF rerank on RAG attachments) | 5–25% on multi-turn workloads |
 | **Output-length ceiling** <sub>(m9)</sub> | Daily compute fits p90 of completion length per workload, injects `max_tokens = p90 × 1.3` | 5–15% on completion cost |
 | **Batch arbitrage** <sub>(m10)</sub> | Route async-tolerant calls to provider Batch APIs (OpenAI Batch + Anthropic Message Batches both 50% off) | 50% on batch-eligible traffic |
-| **Cross-provider failover** | (Reliability primitive, above the mechanics.) Auto-route to a quality-equivalent model on a different provider when an upstream degrades. [Details](https://tesseraai.io/blog/cross-provider-failover-edge). | n/a — keeps you talking |
+| **Per-provider circuit breaker** | (Reliability primitive, above the mechanics.) Rolling 5xx-rate state machine per upstream — when a provider degrades, auto-route skips its intra-provider alternative mappings until the half-open probe succeeds. [Details on /how-it-works](https://tesseraai.io/how-it-works). | n/a — keeps the savings stack honest |
 
 ---
 
