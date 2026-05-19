@@ -1,0 +1,58 @@
+"""Tessera × LangChain integration — drop-in cost optimization for any LangChain ChatModel.
+
+Usage (most common):
+
+    from langchain_openai import ChatOpenAI
+    from tessera_langchain import tessera_openai_config
+
+    llm = ChatOpenAI(
+        model="gpt-4o",
+        openai_api_key="sk-...",
+        **tessera_openai_config(api_key="tsr_..."),
+    )
+
+    # Existing code runs unchanged. Requests now route through
+    # api.tesseraai.io and get auto-routed / auto-cached / auto-compressed.
+
+Or wrap an existing ChatModel instance:
+
+    base_llm = ChatOpenAI(model="gpt-4o", openai_api_key="sk-...")
+    llm = wrap_openai(base_llm, tessera_api_key="tsr_...")
+
+See https://tesseraai.io/dev for the dashboard, free tier, and full
+mechanic documentation.
+"""
+
+from tessera_langchain._version import __version__
+from tessera_langchain._config import (
+    TESSERA_BASE_URL,
+    tessera_openai_config,
+    tessera_anthropic_config,
+    tessera_mistral_config,
+    tessera_groq_config,
+    tessera_cohere_config,
+    tessera_config,
+)
+from tessera_langchain._wrap import (
+    wrap_openai,
+    wrap_anthropic,
+    wrap_mistral,
+    wrap_groq,
+    wrap_cohere,
+)
+
+__all__ = [
+    "__version__",
+    "TESSERA_BASE_URL",
+    "tessera_openai_config",
+    "tessera_anthropic_config",
+    "tessera_mistral_config",
+    "tessera_groq_config",
+    "tessera_cohere_config",
+    "tessera_config",
+    "wrap_openai",
+    "wrap_anthropic",
+    "wrap_mistral",
+    "wrap_groq",
+    "wrap_cohere",
+]

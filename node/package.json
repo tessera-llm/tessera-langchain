@@ -1,0 +1,69 @@
+{
+  "name": "@tessera-llm/langchain",
+  "version": "0.1.0",
+  "description": "Drop-in Tessera integration for LangChain.js. One line of config routes your existing ChatOpenAI / ChatAnthropic / ChatMistralAI / ChatGroq / ChatCohere through Tessera's auto-route + auto-cache + auto-compress + auto-batch proxy. Free 60M tokens/mo. Production: 20% of measured savings.",
+  "keywords": [
+    "tessera",
+    "langchain",
+    "langchainjs",
+    "langchain-integration",
+    "llm",
+    "openai",
+    "anthropic",
+    "mistral",
+    "groq",
+    "cohere",
+    "cost-optimization",
+    "ai-cost",
+    "llm-cost",
+    "llm-proxy",
+    "gpt-4o",
+    "claude",
+    "typescript"
+  ],
+  "homepage": "https://tesseraai.io/dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tessera-llm/tessera-langchain.git",
+    "directory": "node"
+  },
+  "bugs": {
+    "url": "https://github.com/tessera-llm/tessera-langchain/issues"
+  },
+  "license": "Apache-2.0",
+  "author": "Tessera (Fintechagency OÜ) <contact@tesseraai.io>",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --target node18",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
