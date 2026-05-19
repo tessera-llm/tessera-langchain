@@ -2,7 +2,9 @@
 
 **Drop-in cost optimization for LangChain.** One line of config routes your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` through the [Tessera](https://tesseraai.io) optimization proxy — auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Dev tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
 
-Companion to [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk) (vanilla provider SDKs), [`tessera-vercel-ai`](https://github.com/tessera-llm/tessera-vercel-ai) (Vercel AI SDK integration), and [`tessera-llamaindex`](https://github.com/tessera-llm/tessera-llamaindex) (LlamaIndex integration). Same proxy, same mechanic stack, LangChain-shaped API.
+<!-- COMPANION-PACKAGES-START -->
+Companion to [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk) (vanilla provider SDKs), [`tessera-vercel-ai`](https://github.com/tessera-llm/tessera-vercel-ai) (Vercel AI SDK integration), [`tessera-llamaindex`](https://github.com/tessera-llm/tessera-llamaindex) (LlamaIndex integration), [`tessera-mastra`](https://github.com/tessera-llm/tessera-mastra) (Mastra Agent framework integration), [`tessera-pydantic-ai`](https://github.com/tessera-llm/tessera-pydantic-ai) (Pydantic AI integration), [`tessera-crewai`](https://github.com/tessera-llm/tessera-crewai) (CrewAI multi-agent integration), and [`tessera-autogen`](https://github.com/tessera-llm/tessera-autogen) (AutoGen 0.4+ multi-agent integration). Same proxy, same mechanic stack, LangChain-shaped API.
+<!-- COMPANION-PACKAGES-END -->
 
 [![PyPI version](https://img.shields.io/pypi/v/tessera-langchain.svg)](https://pypi.org/project/tessera-langchain/) [![npm version](https://img.shields.io/npm/v/@tessera-llm/langchain.svg)](https://www.npmjs.com/package/@tessera-llm/langchain) [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
