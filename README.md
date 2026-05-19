@@ -17,7 +17,7 @@ Worked example, customer-support agent on `gpt-4o`, 5B tokens/month:
 | Stage | Cost / month | Saved |
 |---|---:|---:|
 | Baseline — OpenAI direct | $24,000 | — |
-| + Tessera (route, cache, prompt-cache headers, compress, M9 ceiling, batch) | $9,400 | $14,600 |
+| + Tessera (route, cache, prompt-cache headers, compress, output-length ceiling, batch) | $9,400 | $14,600 |
 | Tessera fee (20% × savings) | $2,920 | — |
 | **You net pay** | **$12,320** | **$11,680 / mo saved** |
 
@@ -206,7 +206,7 @@ See `examples/`:
 
 - Hobby projects under ~$500/month total bill — the Free Dev tier covers you; Production tier isn't worth the integration effort.
 - Air-gapped / on-prem deployments — Tessera is hosted-only.
-- Workloads with no repetition AND no stable prefix — M2 (cache) and M6 (prompt-cache headers) won't fire. M1 (auto-route) and M10 (batch) might still help; worth measuring on Free Dev first.
+- Workloads with no repetition AND no stable prefix — exact cache and prompt-cache headers won't fire. Auto-route and batch arbitrage might still help; worth measuring on Free Dev first.
 - High-latency-sensitivity workloads with <10ms p50 SLO — the proxy adds 15-25 ms p50 from the Cloudflare edge.
 
 ---
@@ -238,7 +238,7 @@ Semver. Wire format compatibility committed across minor releases; breaking chan
 
 ## Security
 
-See [`SECURITY.md`](./SECURITY.md) (TODO). Coordinated disclosure address: `security@tesseraai.io`.
+See [`SECURITY.md`](./SECURITY.md). Coordinated disclosure address: `security@tesseraai.io`.
 
 ---
 

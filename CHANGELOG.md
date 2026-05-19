@@ -6,6 +6,36 @@ This file follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). The 
 
 ## [Unreleased]
 
+### Added
+
+- `examples/mistral-langchain.py`, `examples/groq-langchain.py`,
+  `examples/cohere-langchain.py` — fills the coverage gap (only OpenAI +
+  Anthropic had examples before).
+- `node/LICENSE` — Apache-2.0 verbatim alongside `node/package.json`
+  files-array entry (per Apache §4.1 redistribution requirement).
+- `.github/dependabot.yml`, `.github/ISSUE_TEMPLATE/bug_report.yml` +
+  `feature_request.yml`, `.github/PULL_REQUEST_TEMPLATE.md` — mirrored
+  from `tessera-sdk` canonical templates.
+
+### Changed
+
+- README cross-link block extended to include all 7 sibling packages
+  (added `tessera-mastra`, `tessera-pydantic-ai`, `tessera-crewai`,
+  `tessera-autogen` — bringing the roster to 7 framework surfaces).
+  Monorepo packages link to PyPI / npm registry pages rather than
+  non-existent GitHub repos.
+- README mechanic-table rows referring to bare `M9` / `M2` / `M6`
+  M-codes in prose softened to descriptive labels per the diagnostic-
+  vocab discipline. `<sub>(m1)</sub>` reference tags in the technical
+  table preserved (audit-log reconciliation surface, allowed per
+  hybrid-policy).
+
+### Fixed
+
+- README "Security" line stripped the stale `(TODO)` marker now that
+  `SECURITY.md` exists alongside CODE_OF_CONDUCT + CONTRIBUTING (added
+  earlier in this session, commit `c81d0f7`).
+
 ## [0.1.0] — 2026-05-19 — first public release
 
 ### Added
