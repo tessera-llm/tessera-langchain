@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to `tessera-langchain` (Python) and `@tessera-llm/langchain` (Node / TypeScript) will be documented here.
 
@@ -6,6 +6,15 @@ This file follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). The 
 
 ## [Unreleased]
 
+## [0.1.1] -- 2026-05-25
+
+### Fixed
+- tk_ prefix sweep across docs + test fixtures.
+- Free Dev -> Free Sandbox terminology consistency.
+- Blog cross-link slug 38 -> 48 (worked-example math drift propagation).
+
+### Changed
+- Companion-cross-link block refreshed for 4 new sibling repos.
 ### Added
 
 - `examples/mistral-langchain.py`, `examples/groq-langchain.py`,
