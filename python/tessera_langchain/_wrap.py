@@ -52,7 +52,7 @@ def wrap_openai(chat_model: ChatModelT, tessera_api_key: str) -> ChatModelT:
         from tessera_langchain import wrap_openai
 
         base = ChatOpenAI(model="gpt-4o", openai_api_key="sk-...")
-        llm = wrap_openai(base, tessera_api_key="tsr_...")
+        llm = wrap_openai(base, tessera_api_key="tk_...")
     """
     cfg = tessera_openai_config(api_key=tessera_api_key)
     merged_headers = {

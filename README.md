@@ -32,7 +32,7 @@ pip install tessera-langchain          # Python
 npm install @tessera-llm/langchain     # Node / TypeScript
 ```
 
-Get a free API key (60M tokens/mo, no card) — [`tesseraai.io/dev`](https://tesseraai.io/dev). Sign-up takes about 30 seconds and returns an instant `tsr_…` key plus magic-link dashboard access.
+Get a free API key (60M tokens/mo, no card) — [`tesseraai.io/dev`](https://tesseraai.io/dev). Sign-up takes about 30 seconds and returns an instant `tk_…` key plus magic-link dashboard access.
 
 ---
 
@@ -45,7 +45,7 @@ from tessera_langchain import tessera_openai_config
 llm = ChatOpenAI(
     model="gpt-4o",
     openai_api_key="sk-...",                          # your OpenAI key, unchanged
-    **tessera_openai_config(api_key="tsr_..."),       # one line, routes through Tessera
+    **tessera_openai_config(api_key="tk_..."),       # one line, routes through Tessera
 )
 
 # Existing LangChain code runs unchanged.
@@ -61,7 +61,7 @@ from tessera_langchain import tessera_anthropic_config
 llm = ChatAnthropic(
     model="claude-sonnet-4-5-20250929",
     anthropic_api_key="sk-ant-...",
-    **tessera_anthropic_config(api_key="tsr_..."),
+    **tessera_anthropic_config(api_key="tk_..."),
 )
 ```
 
@@ -72,7 +72,7 @@ from langchain_openai import ChatOpenAI
 from tessera_langchain import wrap_openai
 
 base = ChatOpenAI(model="gpt-4o", openai_api_key="sk-...")
-llm = wrap_openai(base, tessera_api_key="tsr_...")    # returns a new ChatOpenAI routed through Tessera
+llm = wrap_openai(base, tessera_api_key="tk_...")    # returns a new ChatOpenAI routed through Tessera
 ```
 
 ---
@@ -135,7 +135,7 @@ Same mechanic stack as the main [`tessera-sdk`](https://github.com/tessera-llm/t
 | Groq | `ChatGroq` | `ChatGroq` | `https://api.tesseraai.io/v1/groq` |
 | Cohere | `ChatCohere` | `ChatCohere` | `https://api.tesseraai.io/v1/cohere` |
 
-Other LangChain provider integrations can use the **OpenAI-compat** base URL by configuring `base_url=https://api.tesseraai.io/v1/openai` and `default_headers={"x-tessera-api-key": "tsr_..."}` directly — works for anything that speaks the OpenAI wire format.
+Other LangChain provider integrations can use the **OpenAI-compat** base URL by configuring `base_url=https://api.tesseraai.io/v1/openai` and `default_headers={"x-tessera-api-key": "tk_..."}` directly — works for anything that speaks the OpenAI wire format.
 
 ---
 
@@ -144,7 +144,7 @@ Other LangChain provider integrations can use the **OpenAI-compat** base URL by 
 - **Free Dev** — 60M tokens/month, 30 requests/minute, all mechanics on, no card. Forever.
 - **Production** — over 60M tokens/month or higher rate limit. **20% of measured savings only.** Zero savings, zero fee. Prepaid Stripe balance, $100 minimum top-up. No subscription, no commit, no minimum monthly.
 
-Existing early customers of `tessera-sdk` keep their `rate_locked_pct` (25% Founding Pilot) on this package too — same `tsr_…` key, same billing record.
+Existing early customers of `tessera-sdk` keep their `rate_locked_pct` (25% Founding Pilot) on this package too — same `tk_…` key, same billing record.
 
 ---
 

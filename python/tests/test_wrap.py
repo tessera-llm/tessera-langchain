@@ -44,29 +44,29 @@ class _StubModel:
 class TestWrapOpenAI:
     def test_overrides_base_url(self):
         base = _StubModel(model_name="gpt-4o")
-        wrapped = wrap_openai(base, tessera_api_key="tsr_test")
+        wrapped = wrap_openai(base, tessera_api_key="tk_test")
         assert wrapped.openai_api_base == f"{TESSERA_BASE_URL}/v1/openai"
 
     def test_injects_tessera_header(self):
         base = _StubModel(model_name="gpt-4o")
-        wrapped = wrap_openai(base, tessera_api_key="tsr_test")
-        assert wrapped.default_headers == {"x-tessera-api-key": "tsr_test"}
+        wrapped = wrap_openai(base, tessera_api_key="tk_test")
+        assert wrapped.default_headers == {"x-tessera-api-key": "tk_test"}
 
     def test_merges_existing_headers(self):
         base = _StubModel(
             model_name="gpt-4o",
             default_headers={"x-app": "my-app", "x-trace": "abc"},
         )
-        wrapped = wrap_openai(base, tessera_api_key="tsr_test")
+        wrapped = wrap_openai(base, tessera_api_key="tk_test")
         assert wrapped.default_headers == {
             "x-app": "my-app",
             "x-trace": "abc",
-            "x-tessera-api-key": "tsr_test",
+            "x-tessera-api-key": "tk_test",
         }
 
     def test_returns_new_instance(self):
         base = _StubModel(model_name="gpt-4o")
-        wrapped = wrap_openai(base, tessera_api_key="tsr_test")
+        wrapped = wrap_openai(base, tessera_api_key="tk_test")
         assert wrapped is not base
         assert base.openai_api_base is None  # original untouched
         assert base.default_headers is None
@@ -75,28 +75,28 @@ class TestWrapOpenAI:
 class TestWrapAnthropic:
     def test_overrides_base_url(self):
         base = _StubModel(model_name="claude-sonnet-4-5")
-        wrapped = wrap_anthropic(base, tessera_api_key="tsr_test")
+        wrapped = wrap_anthropic(base, tessera_api_key="tk_test")
         assert wrapped.anthropic_api_url == f"{TESSERA_BASE_URL}/v1/anthropic"
 
 
 class TestWrapMistral:
     def test_overrides_endpoint(self):
         base = _StubModel(model_name="mistral-large")
-        wrapped = wrap_mistral(base, tessera_api_key="tsr_test")
+        wrapped = wrap_mistral(base, tessera_api_key="tk_test")
         assert wrapped.endpoint == f"{TESSERA_BASE_URL}/v1/mistral"
 
 
 class TestWrapGroq:
     def test_overrides_base_url(self):
         base = _StubModel(model_name="llama-3.3-70b")
-        wrapped = wrap_groq(base, tessera_api_key="tsr_test")
+        wrapped = wrap_groq(base, tessera_api_key="tk_test")
         assert wrapped.groq_api_base == f"{TESSERA_BASE_URL}/v1/groq"
 
 
 class TestWrapCohere:
     def test_overrides_base_url(self):
         base = _StubModel(model_name="command-r-plus")
-        wrapped = wrap_cohere(base, tessera_api_key="tsr_test")
+        wrapped = wrap_cohere(base, tessera_api_key="tk_test")
         assert wrapped.base_url == f"{TESSERA_BASE_URL}/v1/cohere"
 
 
@@ -106,7 +106,7 @@ class TestWrapErrors:
             pass
 
         with pytest.raises(TypeError, match="model_copy"):
-            wrap_openai(_NoCopyShape(), tessera_api_key="tsr_test")
+            wrap_openai(_NoCopyShape(), tessera_api_key="tk_test")
 
     def test_rejects_empty_api_key(self):
         base = _StubModel(model_name="gpt-4o")

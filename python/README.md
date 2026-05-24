@@ -21,7 +21,7 @@ from tessera_langchain import tessera_openai_config
 llm = ChatOpenAI(
     model="gpt-4o",
     openai_api_key="sk-...",                      # your OpenAI key, unchanged
-    **tessera_openai_config(api_key="tsr_..."),   # one line, routes through Tessera
+    **tessera_openai_config(api_key="tk_..."),   # one line, routes through Tessera
 )
 
 # Existing LangChain code (agents, chains, tools, streaming) runs unchanged.
@@ -35,12 +35,12 @@ Or wrap an existing instance:
 ```python
 from tessera_langchain import wrap_openai
 
-llm = wrap_openai(my_existing_ChatOpenAI, tessera_api_key="tsr_...")
+llm = wrap_openai(my_existing_ChatOpenAI, tessera_api_key="tk_...")
 ```
 
 ## Free key
 
-Get a free API key (60M tokens/mo, no card) at **[tesseraai.io/dev](https://tesseraai.io/dev)** — sign-up takes ~30 seconds and returns an instant `tsr_…` key plus magic-link dashboard access.
+Get a free API key (60M tokens/mo, no card) at **[tesseraai.io/dev](https://tesseraai.io/dev)** — sign-up takes ~30 seconds and returns an instant `tk_…` key plus magic-link dashboard access.
 
 ## Documentation
 

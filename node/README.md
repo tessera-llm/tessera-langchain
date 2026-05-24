@@ -40,7 +40,7 @@ const llm = wrapOpenAI(myExistingChatOpenAI, process.env.TESSERA_API_KEY!);
 
 ## Free key
 
-Get a free API key (60M tokens/mo, no card) at **[tesseraai.io/dev](https://tesseraai.io/dev)** — sign-up takes ~30 seconds and returns an instant `tsr_…` key plus magic-link dashboard access.
+Get a free API key (60M tokens/mo, no card) at **[tesseraai.io/dev](https://tesseraai.io/dev)** — sign-up takes ~30 seconds and returns an instant `tk_…` key plus magic-link dashboard access.
 
 ## Documentation
 
