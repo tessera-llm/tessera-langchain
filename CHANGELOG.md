@@ -1,4 +1,4 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to `tessera-langchain` (Python) and `@tessera-llm/langchain` (Node / TypeScript) will be documented here.
 
