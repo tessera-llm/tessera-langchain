@@ -21,7 +21,7 @@ Worked example, customer-support agent on `gpt-4o`, 5B tokens/month:
 | Tessera fee (20% × savings) | $2,920 | — |
 | **You net pay** | **$12,320** | **$11,680 / mo saved** |
 
-Quality canary across the full mechanic stack: mean-score 0.96 (floor 0.95) — 0.95 SLA held all 30 days. Full walkthrough on [`/blog/cut-openai-bill-38-percent-without-quality-regression`](https://tesseraai.io/blog/cut-openai-bill-38-percent-without-quality-regression).
+Quality canary across the full mechanic stack: mean-score 0.96 (floor 0.95) — 0.95 SLA held all 30 days. Full walkthrough on [`/blog/cut-openai-bill-48-percent-without-quality-regression`](https://tesseraai.io/blog/cut-openai-bill-48-percent-without-quality-regression).
 
 ---
 
