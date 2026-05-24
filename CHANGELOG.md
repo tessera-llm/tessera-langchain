@@ -61,7 +61,7 @@ This file follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). The 
 ### Architecture notes
 
 - This package is a thin client. Every mechanic decision (route, cache, compress, prompt-cache headers, output-length cap, batch arbitrage) runs in the closed-source Tessera Cloudflare Worker proxy at `api.tesseraai.io`. The split is intentional: the wire format is open and auditable; the mechanic implementations are closed because that's the asymmetric IP.
-- Same proxy + mechanic stack as the main [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk). Same `tsr_…` API key works across both packages; same billing record.
+- Same proxy + mechanic stack as the main [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk). Same `tk_…` API key works across both packages; same billing record.
 - No LangChain dependency in the package itself. The config helpers return plain dicts / objects that you pass into the LangChain ChatModel constructor of your choice. This keeps the install lightweight and lets us support new LangChain provider classes without lock-step releases.
 
 ### Companion releases

@@ -10,7 +10,7 @@ Usage (most common):
     llm = ChatOpenAI(
         model="gpt-4o",
         openai_api_key="sk-...",
-        **tessera_openai_config(api_key="tsr_..."),
+        **tessera_openai_config(api_key="tk_..."),
     )
 
     # Existing code runs unchanged. Requests now route through
@@ -19,7 +19,7 @@ Usage (most common):
 Or wrap an existing ChatModel instance:
 
     base_llm = ChatOpenAI(model="gpt-4o", openai_api_key="sk-...")
-    llm = wrap_openai(base_llm, tessera_api_key="tsr_...")
+    llm = wrap_openai(base_llm, tessera_api_key="tk_...")
 
 See https://tesseraai.io/dev for the dashboard, free tier, and full
 mechanic documentation.
