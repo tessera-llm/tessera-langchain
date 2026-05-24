@@ -1,6 +1,6 @@
 # `tessera-langchain`
 
-**Drop-in cost optimization for LangChain.** One line of config routes your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` through the [Tessera](https://tesseraai.io) optimization proxy — auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Dev tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
+**Drop-in cost optimization for LangChain.** One line of config routes your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` through the [Tessera](https://tesseraai.io) optimization proxy — auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Sandbox tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
 
 <!-- COMPANION-PACKAGES-START -->
 Companion to [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk) (vanilla provider SDKs), [`tessera-vercel-ai`](https://github.com/tessera-llm/tessera-vercel-ai) (Vercel AI SDK integration), [`tessera-llamaindex`](https://github.com/tessera-llm/tessera-llamaindex) (LlamaIndex integration), [`tessera-mastra`](https://www.npmjs.com/package/@tessera-llm/mastra) (Mastra Agent framework integration), [`tessera-pydantic-ai`](https://pypi.org/project/tessera-pydantic-ai/) (Pydantic AI integration), [`tessera-crewai`](https://pypi.org/project/tessera-crewai/) (CrewAI multi-agent integration), and [`tessera-autogen`](https://pypi.org/project/tessera-autogen/) (AutoGen 0.4+ multi-agent integration). Same proxy, same mechanic stack, LangChain-shaped API.
@@ -141,7 +141,7 @@ Other LangChain provider integrations can use the **OpenAI-compat** base URL by 
 
 ## Pricing
 
-- **Free Dev** — 60M tokens/month, 30 requests/minute, all mechanics on, no card. Forever.
+- **Free Sandbox** — 60M tokens/month, 30 requests/minute, observability-only mechanics, no card. Forever.
 - **Production** — over 60M tokens/month or higher rate limit. **20% of measured savings only.** Zero savings, zero fee. Prepaid Stripe balance, $100 minimum top-up. No subscription, no commit, no minimum monthly.
 
 Existing early customers of `tessera-sdk` keep their `rate_locked_pct` (25% Founding Pilot) on this package too — same `tk_…` key, same billing record.
@@ -166,7 +166,7 @@ Your application gets HTTP errors instead of LLM responses. To passthrough on er
 
 ### Q: What happens to my OpenAI / Anthropic rate limits?
 
-They pass through. Tessera does not aggregate quotas across customers. Your provider rate limits apply normally; the proxy enforces only the Tessera tier limits (30 rpm Free Dev, 60 rpm Production by default — higher on request).
+They pass through. Tessera does not aggregate quotas across customers. Your provider rate limits apply normally; the proxy enforces only the Tessera tier limits (30 rpm Free Sandbox, 60 rpm Production by default — higher on request).
 
 ### Q: Are you storing my prompts and completions?
 
@@ -200,13 +200,13 @@ See `examples/`:
 
 - **AI-native teams** spending $5k+/month on OpenAI / Anthropic / Gemini and wanting that bill cut without re-architecting.
 - **LangChain users** who do not want to swap to a different abstraction just to add an optimization proxy.
-- **Production workloads** with eval sets — Tessera's mechanic stack only fires when the per-stack canary holds 0.95 quality. If you don't have an eval set yet, the Free Dev tier is the right place to start.
+- **Production workloads** with eval sets — Tessera's mechanic stack only fires when the per-stack canary holds 0.95 quality. If you don't have an eval set yet, the Free Sandbox tier is the right place to start.
 
 ## Who this is NOT for
 
-- Hobby projects under ~$500/month total bill — the Free Dev tier covers you; Production tier isn't worth the integration effort.
+- Hobby projects under ~$500/month total bill — the Free Sandbox tier covers you; Production tier isn't worth the integration effort.
 - Air-gapped / on-prem deployments — Tessera is hosted-only.
-- Workloads with no repetition AND no stable prefix — exact cache and prompt-cache headers won't fire. Auto-route and batch arbitrage might still help; worth measuring on Free Dev first.
+- Workloads with no repetition AND no stable prefix — exact cache and prompt-cache headers won't fire. Auto-route and batch arbitrage might still help; worth measuring on Free Sandbox first.
 - High-latency-sensitivity workloads with <10ms p50 SLO — the proxy adds 15-25 ms p50 from the Cloudflare edge.
 
 ---
