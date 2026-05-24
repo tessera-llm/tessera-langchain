@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@tessera-llm/langchain.svg)](https://www.npmjs.com/package/@tessera-llm/langchain)
 
-**Drop-in cost optimization for LangChain.js ChatModels.** One line of config in your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` constructor routes your traffic through the [Tessera](https://tesseraai.io) proxy — auto-route, exact + provider-prompt-cache hits, per-role compression, output-length ceiling, batch arbitrage. Free Dev tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
+**Drop-in cost optimization for LangChain.js ChatModels.** One line of config in your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` constructor routes your traffic through the [Tessera](https://tesseraai.io) proxy — auto-route, exact + provider-prompt-cache hits, per-role compression, output-length ceiling, batch arbitrage. Free Sandbox tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
 
 Companion package to [`@tessera-llm/sdk`](https://www.npmjs.com/package/@tessera-llm/sdk) — same proxy, LangChain-shaped API.
 
