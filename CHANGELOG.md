@@ -9,9 +9,9 @@ This file follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). The 
 ## [0.1.1] -- 2026-05-25
 
 ### Fixed
-- tk_ prefix sweep across docs + test fixtures.
-- Free Dev -> Free Sandbox terminology consistency.
-- Blog cross-link slug 38 -> 48 (worked-example math drift propagation).
+- Consolidated API key prefix to `tk_` across documentation and test fixtures.
+- Aligned free-tier terminology on `Free Sandbox`.
+- Blog cross-link slug 38 -> 48 .
 
 ### Changed
 - Companion-cross-link block refreshed for 4 new sibling repos.
