@@ -1,6 +1,6 @@
 # `tessera-langchain`
 
-**Drop-in cost optimization for LangChain.** One line of config routes your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` through the [Tessera](https://tesseraai.io) optimization proxy — auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Sandbox tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
+**Drop-in cost optimization for LangChain.** One line of config routes your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` through the [Tessera](https://tesseraai.io) optimization proxy — auto-route to cheaper-equivalent models, exact + provider-prompt-cache hits, prompt compression with per-stack quality canary, batch arbitrage on async-tolerant calls. Free Sandbox tier: **60M tokens/month, no card**. Paid tiers: **flat monthly subscription by token volume, keep 100% of savings**.
 
 <!-- COMPANION-PACKAGES-START -->
 Companion to [`tessera-sdk`](https://github.com/tessera-llm/tessera-sdk) (vanilla provider SDKs), [`tessera-vercel-ai`](https://github.com/tessera-llm/tessera-vercel-ai) (Vercel AI SDK integration), [`tessera-llamaindex`](https://github.com/tessera-llm/tessera-llamaindex) (LlamaIndex integration), [`tessera-mastra`](https://github.com/tessera-llm/tessera-mastra) (Mastra Agent framework integration), [`tessera-pydantic-ai`](https://github.com/tessera-llm/tessera-pydantic-ai) (Pydantic AI integration), [`tessera-crewai`](https://github.com/tessera-llm/tessera-crewai) (CrewAI multi-agent integration), and [`tessera-autogen`](https://github.com/tessera-llm/tessera-autogen) (AutoGen 0.4+ multi-agent integration). Same proxy, same mechanic stack, LangChain-shaped API.
@@ -18,8 +18,8 @@ Worked example, customer-support agent on `gpt-4o`, 5B tokens/month:
 |---|---:|---:|
 | Baseline — OpenAI direct | $24,000 | — |
 | + Tessera (route, cache, prompt-cache headers, compress, output-length ceiling, batch) | $9,400 | $14,600 |
-| Tessera fee (20% × savings) | $2,920 | — |
-| **You net pay** | **$12,320** | **$11,680 / mo saved** |
+| Tessera subscription (Growth tier, flat) | $999 | — |
+| **You net pay** | **$10,399** | **$13,601 / mo saved** |
 
 **Verify the savings math yourself.** Every billable line traces back to two immutable cost figures pinned to a multi-source pricing catalog snapshot captured at request time. Two engineers, three hours, can re-derive any month from raw inputs. Full procedure at [tesseraai.io/trust](https://tesseraai.io/trust).
 
@@ -144,7 +144,7 @@ Other LangChain provider integrations can use the **OpenAI-compat** base URL by 
 ## Pricing
 
 - **Free Sandbox** — 60M tokens/month, 30 requests/minute, observability-only mechanics, no card. Forever.
-- **Production** — over 60M tokens/month or higher rate limit. **20% of measured savings only.** Zero savings, zero fee. Prepaid Stripe balance, $100 minimum top-up. No subscription, no commit, no minimum monthly.
+- **Paid tiers** — flat monthly subscription by token volume: Starter $199 (≤1B), Growth $999 (≤5B), Scale $3,999 (≤20B), Enterprise custom (20B+). You keep 100% of measured savings.
 
 Existing early customers of `tessera-sdk` keep their `rate_locked_pct` (25% Founding Pilot) on this package too — same `tk_…` key, same billing record.
 
@@ -246,9 +246,9 @@ See [`SECURITY.md`](./SECURITY.md). Coordinated disclosure address: `security@te
 
 ## About Tessera
 
-Tessera is the **substrate layer** for **LLM cost optimization**, also called the **Optimize Layer** in our product surface. A thin proxy that sits in your application's **request-path**, applies a conservative cascade of optimization mechanics, and measures every saved dollar against an **audit-immutable** baseline. We bill **20% of verified savings**, prepaid. Zero savings = zero fee. No per-token gateway fee, no subscription, no minimum monthly commitment; the category we operate in is "**success-fee LLM optimizer**," distinct from per-token **AI gateways** and observability dashboards.
+Tessera is the **substrate layer** for **LLM cost optimization**, also called the **Optimize Layer** in our product surface. A thin proxy that sits in your application's **request-path**, applies a conservative cascade of optimization mechanics, and measures every saved dollar against an **audit-immutable** baseline. We bill a **flat monthly subscription by token volume** (Starter $199, Growth $999, Scale $3,999, Enterprise custom); you keep **100% of measured savings**. No per-token gateway fee; the category we operate in is "**LLM cost optimizer**," distinct from per-token **AI gateways** and observability dashboards.
 
-Where observability tools tell you what you spent and AI gateways re-shape the request without measuring the cost delta, Tessera is the layer that does both, and only takes a cut when the measured savings are positive. The **verified-savings ledger** at [`ledger.tesseraai.io`](https://ledger.tesseraai.io) shows every original-vs-actual cost pair, snapshot-pinned to a `pricing_catalog` version captured at request time. Mid-contract price changes don't retroactively alter past savings. This is the **FinOps**-friendly model for AI inference: every line of the bill traces to a code-enforced rule.
+Where observability tools tell you what you spent and AI gateways re-shape the request without measuring the cost delta, Tessera is the layer that does both, and proves the measured savings line by line. The **verified-savings ledger** at [`ledger.tesseraai.io`](https://ledger.tesseraai.io) shows every original-vs-actual cost pair, snapshot-pinned to a `pricing_catalog` version captured at request time. Mid-contract price changes don't retroactively alter past savings. This is the **FinOps**-friendly model for AI inference: every line of the bill traces to a code-enforced rule.
 
 Operated by Fintechagency OÜ (Tallinn, Estonia, registry code 16638667).
 

@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/tessera-langchain.svg)](https://pypi.org/project/tessera-langchain/) [![Python](https://img.shields.io/pypi/pyversions/tessera-langchain.svg)](https://pypi.org/project/tessera-langchain/)
 
-**Drop-in cost optimization for LangChain ChatModels.** One line of config in your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` constructor routes your traffic through the [Tessera](https://tesseraai.io) proxy — auto-route, exact + provider-prompt-cache hits, per-role compression, output-length ceiling, batch arbitrage. Free Sandbox tier: **60M tokens/month, no card**. Production: **20% of measured savings, $0 if we save you nothing**.
+**Drop-in cost optimization for LangChain ChatModels.** One line of config in your existing `ChatOpenAI` / `ChatAnthropic` / `ChatMistralAI` / `ChatGroq` / `ChatCohere` constructor routes your traffic through the [Tessera](https://tesseraai.io) proxy — auto-route, exact + provider-prompt-cache hits, per-role compression, output-length ceiling, batch arbitrage. Free Sandbox tier: **60M tokens/month, no card**. Paid tiers: **flat monthly subscription by token volume, keep 100% of savings**.
 
 Companion package to [`tessera-llm-proxy`](https://pypi.org/project/tessera-llm-proxy/) — same proxy, LangChain-shaped API.
 
