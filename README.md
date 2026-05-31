@@ -143,7 +143,7 @@ Other LangChain provider integrations can use the **OpenAI-compat** base URL by 
 
 ## Pricing
 
-- **Free Sandbox** — 60M tokens/month, 30 requests/minute, observability-only mechanics, no card. Forever.
+- **Free Sandbox** — 60M tokens/month, 30 requests/minute, full mechanic stack active (route · cache · compress · batch). No card. Forever.
 - **Paid tiers** — flat monthly subscription by token volume: Starter $199 (≤1B), Growth $999 (≤5B), Scale $3,999 (≤20B), Enterprise custom (20B+). You keep 100% of measured savings.
 
 Existing early customers of `tessera-sdk` keep their `rate_locked_pct` (25% Founding Pilot) on this package too — same `tk_…` key, same billing record.
@@ -206,7 +206,7 @@ See `examples/`:
 
 ## Who this is NOT for
 
-- Hobby projects under ~$500/month total bill — the Free Sandbox tier covers you; Production tier isn't worth the integration effort.
+- Hobby projects under ~$500/month total bill — the Free Sandbox tier covers you with the same full mechanic stack; a paid tier isn't worth the subscription cost at that volume.
 - Air-gapped / on-prem deployments — Tessera is hosted-only.
 - Workloads with no repetition AND no stable prefix — exact cache and prompt-cache headers won't fire. Auto-route and batch arbitrage might still help; worth measuring on Free Sandbox first.
 - High-latency-sensitivity workloads with <10ms p50 SLO — the proxy adds 15-25 ms p50 from the Cloudflare edge.
